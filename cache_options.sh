@@ -4,6 +4,11 @@
 # run_fio_batches 1 /dev/sdc1 ssd
 #              LD #   Device name  Human readable device name
 
+
+# clear the logs
+rm -rf ./*.log
+rm import.csv
+
 duration="600"
 
 # *****
@@ -83,3 +88,9 @@ MegaCli -LDSetProp NORA -L$1 -a0
 # Run write test
 ./run_fio_batches.sh $2 70 $duration $3-WT-NORA-70read-30write
 
+# Prepare data for import
+./parse_log.pl > import.csv
+
+# Verify raid options succeeded
+cat ./overall.log | grep success | wc -l
+echo "Above value should be 12 if all mode changes succeeded"
