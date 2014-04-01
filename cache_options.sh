@@ -4,7 +4,7 @@
 # run_fio_batches 1 /dev/sdc1 ssd
 #              LD #   Device name  Human readable device name
 
-duration="5"
+duration="600"
 
 # *****
 # WB + ADRA (default)
