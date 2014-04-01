@@ -92,5 +92,5 @@ MegaCli -LDSetProp NORA -L$1 -a0
 ./parse_log.pl > import.csv
 
 # Verify raid options succeeded
-cat ./overall.log | grep success | wc -l
+cat ./MegaSAS.log | grep success | wc -l
 echo "Above value should be 12 if all mode changes succeeded"
