@@ -6,7 +6,8 @@
 
 
 # clear the logs
-rm -rf ./*.log
+rm -rf ./fio*.log
+rm -rf MegaSas.log (removing *.log seems to remove overall.log and prevents it from being re-made with content after this pooint)
 rm import.csv
 
 duration="600"
