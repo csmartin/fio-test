@@ -10,11 +10,11 @@ while(<MYINPUTFILE>)
     my ($line) = $_;
     chomp ($line);
 
-    if ($line =~ m/read.*bw\=(\d+)KB.*iops\=(\d+)/)
+    if ($line =~ m/read.*bw\=([\d\.]+)KB.*iops\=(\d+)/)
     {
 	push (@read_results,"$2,$1");
     }
-    elsif ($line =~ m/write.*bw\=(\d+)KB.*iops\=(\d+)/)
+    elsif ($line =~ m/write.*bw\=([\d\.]+)KB.*iops\=(\d+)/)
     {
 	push (@write_results,"$2,$1");
     }
