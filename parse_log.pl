@@ -20,11 +20,11 @@ while(<MYINPUTFILE>)
     }
 }
 
-
 # Loop over the read array since it has results every time
 my $read_only = 1; # flip every time i wraps around to a multiple of 6. When on, print 0s for write results
 my $write_index = 0;
-for (my $i=0; $i <= $#read_results; $i++)
+
+for (my $i=0; $i <= ($#write_results+6); $i++)
 {
     my $read_string = $read_results[$i];
     my $write_string = "0,0";
@@ -34,7 +34,7 @@ for (my $i=0; $i <= $#read_results; $i++)
 	$write_string = $write_results[$write_index++];
     }
 
-    if ($i % 6 == 5)
+    if ($i == 5)
     {
 	$read_only = !$read_only;
     }
